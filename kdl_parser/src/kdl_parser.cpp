@@ -33,7 +33,9 @@
 *********************************************************************/
 
 /* Author: Wim Meeussen */
-
+#ifdef WIN32
+#define TIXML_USE_STL
+#endif
 #include "kdl_parser/kdl_parser.hpp"
 
 #include <string>

@@ -44,8 +44,11 @@
 
 // This logic was borrowed (then namespaced) from the examples on the gcc wiki:
 //     https://gcc.gnu.org/wiki/Visibility
-
+#ifdef WIN32
+#define KDL_PARSER_DEPRECATED(msg) [[deprecated(msg)]]
+#else
 #define KDL_PARSER_DEPRECATED(msg) __attribute__((deprecated(msg)))
+#endif
 
 #if defined _WIN32 || defined __CYGWIN__
   #ifdef __GNUC__
