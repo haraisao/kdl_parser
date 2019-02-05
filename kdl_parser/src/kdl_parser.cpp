@@ -192,7 +192,7 @@ bool treeFromXml(const tinyxml2::XMLDocument * xml_doc, KDL::Tree & tree)
   }
   return treeFromUrdfModel(robot_model, tree);
 }
-
+#ifndef WIN32
 bool treeFromXml(TiXmlDocument * xml_doc, KDL::Tree & tree)
 {
   if (!xml_doc) {
@@ -209,7 +209,7 @@ bool treeFromXml(TiXmlDocument * xml_doc, KDL::Tree & tree)
   }
   return treeFromUrdfModel(robot_model, tree);
 }
-
+#endif
 bool treeFromUrdfModel(const urdf::ModelInterface & robot_model, KDL::Tree & tree)
 {
   if (!robot_model.getRoot()) {

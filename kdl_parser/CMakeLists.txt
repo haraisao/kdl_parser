@@ -9,7 +9,9 @@ find_package(catkin REQUIRED
   COMPONENTS rosconsole urdf cmake_modules
 )
 find_package(orocos_kdl REQUIRED)
+if(NOT WIN32)
 find_package(TinyXML REQUIRED)
+endif()
 find_package(TinyXML2 REQUIRED)
 
 include_directories(include ${orocos_kdl_INCLUDE_DIRS} ${TinyXML_INCLUDE_DIRS} ${TinyXML2_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})

@@ -41,7 +41,9 @@
 #include <string>
 #include <urdf_model/model.h>
 #include <tinyxml2.h>
+#ifndef WIN32
 #include <tinyxml.h>  // NOLINT
+#endif
 
 #include "kdl_parser/visibility_control.hpp"
 
@@ -85,10 +87,11 @@ bool treeFromXml(const tinyxml2::XMLDocument * xml_doc, KDL::Tree & tree);
  * \param[out] tree The resulting KDL Tree
  * returns true on success, false on failure
  */
+#ifndef WIN32
 KDL_PARSER_PUBLIC
 KDL_PARSER_DEPRECATED("TinyXML API is deprecated, use the TinyXML2 version instead")
 bool treeFromXml(TiXmlDocument * xml_doc, KDL::Tree & tree);
-
+#endif
 /** Constructs a KDL tree from a URDF robot model
  * \param robot_model The URDF robot model
  * \param tree The resulting KDL Tree
